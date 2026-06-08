@@ -1,37 +1,33 @@
 {
-  "provider": "apify",
+  "provider": "oxylabs",
   "report_date": "2026-06-08",
   "frozen": true,
-  "endpoint": "https://api.apify.com/v2",
-  "auth_env": "APIFY_TOKEN",
+  "endpoint": "https://realtime.oxylabs.io/v1/queries",
+  "auth_env": "OXYLABS_TOKEN",
   "summary": {
     "domains_total": 20,
     "operational": 20,
     "genuine_fail": 0,
     "reachability_pct": 100,
-    "avg_success_rate": 0.953,
-    "avg_cost_per_1k_usd": 7.04,
-    "avg_latency_ms": 19538
+    "avg_success_rate": 0.934,
+    "avg_cost_per_1k_usd": 7,
+    "avg_latency_ms": 13099
   },
   "domains": {
     "amazon.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "categoryOrProductUrls": [
-            {
-              "url": "https://www.amazon.com/dp/B07FZ8S74R"
-            }
-          ],
-          "maxItemsPerStartUrl": 1,
-          "useCaptchaSolver": false
+          "source": "amazon_product",
+          "url": "https://www.amazon.com/dp/B07FZ8S74R",
+          "parse": true
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/junglee~Amazon-crawler/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.amazon.com/dp/B07FZ8S74R",
-      "success_rate": 0.8,
-      "cost_per_1k_usd": 5,
-      "avg_latency_ms": 14542,
+      "success_rate": 1,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 10223,
       "verify_keys": [
         "productTitle",
         "id=\"dp-container\"",
@@ -40,25 +36,23 @@
         "nav-logo-base"
       ],
       "need_at_least": 2,
-      "notes": "Actor junglee/Amazon-crawler PAY_PER_EVENT $0.005/result (15k+ users)."
+      "notes": "Dedicated amazon_product parser; ~129 fields."
     },
     "bestbuy.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "searchUrls": [
-            {
-              "url": "https://www.bestbuy.com/site/searchpage.jsp?st=iphone"
-            }
-          ],
-          "maxItems": 10
+          "source": "universal",
+          "url": "https://www.bestbuy.com/site/apple-iphone-16-pro-max-256gb-natural-titanium-att/6570601.p?skuId=6570601",
+          "render": "html",
+          "geo_location": "United States"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/piotrv1001~bestbuy-listings-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.bestbuy.com/site/apple-iphone-16-pro-max-256gb-natural-titanium-att/6570601.p?skuId=6570601",
-      "success_rate": 1,
-      "cost_per_1k_usd": 10.15,
-      "avg_latency_ms": 11565,
+      "success_rate": 0.75,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 34097,
       "verify_keys": [
         "application/ld+json",
         "\"@type\":\"Product\"",
@@ -67,23 +61,21 @@
         "add-to-cart-button"
       ],
       "need_at_least": 2,
-      "notes": "Actor piotrv1001/bestbuy-listings-scraper at $0.001/result."
+      "notes": "T3 universal+render; 75% yield aggregated."
     },
     "bing.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "queries": [
-            "best laptops 2025"
-          ],
-          "resultsPerPage": 10
+          "source": "bing",
+          "query": "best laptops 2025"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/ivanvs~bing-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.bing.com/search?q=best+laptops+2025",
       "success_rate": 1,
-      "cost_per_1k_usd": 6.1,
-      "avg_latency_ms": 13274,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 6980,
       "verify_keys": [
         "<title>best laptops 2025 - Search</title>",
         "id=\"b_content\"",
@@ -92,25 +84,20 @@
         "class=\"b_attribution"
       ],
       "need_at_least": 2,
-      "notes": "Actor ivanvs/bing-scraper at $0.0061/run."
+      "notes": "Dedicated bing engine."
     },
     "booking.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.booking.com/hotel/us/the-plaza.html"
-            }
-          ],
-          "maxItems": 1
+          "url": "https://www.booking.com/hotel/us/the-plaza.html"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/voyager~booking-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://unblock.oxylabs.io:60000"
       },
       "url": "https://www.booking.com/hotel/us/the-plaza.html",
-      "success_rate": 1,
-      "cost_per_1k_usd": 1.075,
-      "avg_latency_ms": 52408,
+      "success_rate": 0.8666666666666667,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 30935,
       "verify_keys": [
         "hp_hotel_name",
         "data-capla-component-boundary",
@@ -119,25 +106,22 @@
         "\"reviewCount\""
       ],
       "need_at_least": 2,
-      "notes": "Actor voyager/booking-scraper."
+      "notes": "Web Unblocker HTTPS proxy + x-oxylabs-render:html; use Python (Node CONNECT bug)."
     },
     "capterra.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.capterra.com/p/135003/Slack/"
-            }
-          ],
-          "maxItems": 1
+          "source": "universal",
+          "url": "https://www.capterra.com/p/135003/Slack/",
+          "render": "html"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/crawlerbros~capterra-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.capterra.com/p/135003/Slack/",
       "success_rate": 1,
-      "cost_per_1k_usd": 6.055,
-      "avg_latency_ms": 17240,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 18447,
       "verify_keys": [
         "<title>Slack Software Pricing",
         "\"@type\":\"SoftwareApplication\"",
@@ -146,23 +130,21 @@
         "/p/135003/Slack"
       ],
       "need_at_least": 2,
-      "notes": "Actor crawlerbros/capterra-scraper."
+      "notes": "T3 universal+render."
     },
     "ebay.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "keywords": [
-            "macbook pro"
-          ],
-          "count": 1
+          "source": "universal",
+          "url": "https://www.ebay.com/itm/116619563010"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/caffein.dev~ebay-sold-listings/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.ebay.com/itm/116619563010",
       "success_rate": 1,
-      "cost_per_1k_usd": 4.1,
-      "avg_latency_ms": 7004,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 7013,
       "verify_keys": [
         "itm.ebaydesc.com",
         "ebayLogoTitle",
@@ -171,23 +153,22 @@
         "\"@type\":\"Product\""
       ],
       "need_at_least": 2,
-      "notes": "Actor caffein.dev/ebay-sold-listings — returns SOLD listings (last N days), not active."
+      "notes": "T1 universal (~$0.007/req)."
     },
     "g2.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "productSlugs": [
-            "slack",
-            "jira-software"
-          ]
+          "source": "universal",
+          "url": "https://www.g2.com/products/slack/reviews",
+          "render": "html"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/automation-lab~g2-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.g2.com/products/slack/reviews",
-      "success_rate": 0.75,
-      "cost_per_1k_usd": 13.75,
-      "avg_latency_ms": 2668,
+      "success_rate": 0.8333,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 23030,
       "verify_keys": [
         "<title>Slack Reviews 2026",
         "itemprop=\"ratingValue\"",
@@ -196,22 +177,21 @@
         "Filter 39001 reviews"
       ],
       "need_at_least": 2,
-      "notes": "Actor automation-lab/g2-scraper (177 users); 75% yield — dead-slug risk."
+      "notes": "T3 universal+render; 83% yield aggregated."
     },
     "github.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "repoUrls": [
-            "https://github.com/microsoft/vscode"
-          ]
+          "source": "universal",
+          "url": "https://github.com/microsoft/vscode"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/crawlerbros~github-repo-intelligence/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://github.com/microsoft/vscode",
       "success_rate": 1,
-      "cost_per_1k_usd": 4.555,
-      "avg_latency_ms": 6165,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 4040,
       "verify_keys": [
         "<title>GitHub - microsoft/vscode",
         "data-testid=\"latest-commit-details\"",
@@ -220,24 +200,21 @@
         "github.com/microsoft/vscode"
       ],
       "need_at_least": 2,
-      "notes": "Actor crawlerbros/github-repo-intelligence."
+      "notes": "T1 universal."
     },
     "google.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "queries": [
-            "python tutorial"
-          ],
-          "resultsPerPage": 10,
-          "maxPagesPerQuery": 1
+          "source": "google_search",
+          "query": "python tutorial"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/apify~google-search-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.google.com/search?q=python+tutorial",
       "success_rate": 1,
-      "cost_per_1k_usd": 1.5,
-      "avg_latency_ms": 12652,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 6680,
       "verify_keys": [
         "id=\"search\"",
         "id=\"rso\"",
@@ -246,25 +223,20 @@
         "itemtype=\"http://schema.org/SearchResultsPage\""
       ],
       "need_at_least": 2,
-      "notes": "Apify official google-search-scraper."
+      "notes": "Dedicated google_search engine."
     },
     "idealista.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.idealista.com/venta-viviendas/madrid-madrid/"
-            }
-          ],
-          "maxItems": 5
+          "url": "https://www.idealista.com/inmueble/110715434/"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/dz_omar~idealista-scraper-api/run-sync-get-dataset-items"
+        "endpoint_override": "https://unblock.oxylabs.io:60000"
       },
       "url": "https://www.idealista.com/inmueble/110715434/",
       "success_rate": 0.9,
-      "cost_per_1k_usd": 2,
-      "avg_latency_ms": 11481,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 7775,
       "verify_keys": [
         "class=\"main-info__title-main\"",
         "class=\"info-data-price\"",
@@ -273,25 +245,21 @@
         "Calle de Isabel la Católica"
       ],
       "need_at_least": 2,
-      "notes": "Actor dz_omar/idealista-scraper-api."
+      "notes": "Web Unblocker + x-oxylabs-geo-location:Spain; Python+HTTPS proxy."
     },
     "indeed.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.indeed.com/jobs?q=software+engineer&l=New+York%2C+NY"
-            }
-          ],
-          "maxItems": 10
+          "source": "universal",
+          "url": "https://www.indeed.com/jobs?q=software+engineer&l=New+York%2C+NY"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/misceres~indeed-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.indeed.com/jobs?q=software+engineer&l=New+York%2C+NY",
       "success_rate": 1,
-      "cost_per_1k_usd": 13.25,
-      "avg_latency_ms": 20786,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 27583,
       "verify_keys": [
         "<title>Software Engineer Jobs, Employment in New York, NY | Indeed</title>",
         "data-jk=\"",
@@ -300,22 +268,21 @@
         "id=\"mosaic-provider-jobcards\""
       ],
       "need_at_least": 2,
-      "notes": "Actor misceres/indeed-scraper."
+      "notes": "T1 universal."
     },
     "instagram.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "usernames": [
-            "nike"
-          ]
+          "source": "universal",
+          "url": "https://www.instagram.com/nike/"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/apify~instagram-profile-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.instagram.com/nike/",
       "success_rate": 1,
-      "cost_per_1k_usd": 2.6,
-      "avg_latency_ms": 6603,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 14317,
       "verify_keys": [
         "\"username\":\"nike\"",
         "<title>Nike (&#064;nike)",
@@ -324,22 +291,21 @@
         "og:type\" content=\"profile\""
       ],
       "need_at_least": 2,
-      "notes": "Apify official instagram-profile-scraper (128k users); FREE $0.0026/profile."
+      "notes": "T1 universal."
     },
     "linkedin.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "profileUrls": [
-            "https://www.linkedin.com/company/microsoft/"
-          ]
+          "source": "universal",
+          "url": "https://www.linkedin.com/company/microsoft/"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/harvestapi~linkedin-profile-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.linkedin.com/company/microsoft/",
       "success_rate": 1,
-      "cost_per_1k_usd": 4,
-      "avg_latency_ms": 8881,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 4180,
       "verify_keys": [
         "<title>Microsoft | LinkedIn</title>",
         "\"@type\":\"Organization\"",
@@ -348,25 +314,21 @@
         "_org_guest_company_overview"
       ],
       "need_at_least": 2,
-      "notes": "Actor harvestapi/linkedin-profile-scraper."
+      "notes": "T1 universal."
     },
     "reddit.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.reddit.com/r/programming/"
-            }
-          ],
-          "maxItems": 1
+          "source": "universal",
+          "url": "https://old.reddit.com/r/programming/"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/trudax~reddit-scraper-lite/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://old.reddit.com/r/programming/",
       "success_rate": 1,
-      "cost_per_1k_usd": 44,
-      "avg_latency_ms": 19985,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 5043,
       "verify_keys": [
         "id=\"siteTable\"",
         "data-fullname=\"t3_",
@@ -375,25 +337,21 @@
         "<title>programming</title>"
       ],
       "need_at_least": 2,
-      "notes": "Actor trudax/reddit-scraper-lite — PAY_PER_EVENT $0.02 actor-start + $0.004/result (~$0.044/run min)."
+      "notes": "T1 universal."
     },
     "tripadvisor.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.tripadvisor.com/Hotel_Review-g60763-d675616-Reviews-The_Plaza_New_York_A_Fairmont_Managed_Hotel-New_York_City_New_York.html"
-            }
-          ],
-          "maxItems": 1
+          "source": "universal",
+          "url": "https://www.tripadvisor.com/Hotel_Review-g60763-d675616-Reviews-The_Plaza_New_York_A_Fairmont_Managed_Hotel-New_York_City_New_York.html"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/maxcopell~tripadvisor/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.tripadvisor.com/Hotel_Review-g60763-d675616-Reviews-The_Plaza_New_York_A_Fairmont_Managed_Hotel-New_York_City_New_York.html",
-      "success_rate": 1,
-      "cost_per_1k_usd": 7.205,
-      "avg_latency_ms": 54366,
+      "success_rate": 0.9167,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 16333,
       "verify_keys": [
         "Fairmont",
         "THE PLAZA NEW YORK",
@@ -402,25 +360,22 @@
         "data-automation"
       ],
       "need_at_least": 2,
-      "notes": "Actor maxcopell/tripadvisor."
+      "notes": "T1 universal; 91.7% yield."
     },
     "trustpilot.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.trustpilot.com/review/amazon.com"
-            }
-          ],
-          "maxItems": 5
+          "source": "universal",
+          "url": "https://www.trustpilot.com/review/amazon.com",
+          "render": "html"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/getwally.net~trustpilot-reviews-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.trustpilot.com/review/amazon.com",
-      "success_rate": 0.85,
-      "cost_per_1k_usd": 0.475,
-      "avg_latency_ms": 22533,
+      "success_rate": 0.4167,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 24013,
       "verify_keys": [
         "data-service-review-card-paper",
         "data-service-review-rating",
@@ -429,22 +384,21 @@
         "data-business-unit-json-ld"
       ],
       "need_at_least": 2,
-      "notes": "Actor getwally.net/trustpilot-reviews-scraper."
+      "notes": "T3 universal+render; 41.7% yield — 403 blocks dominate."
     },
     "walmart.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "productUrls": [
-            "https://www.walmart.com/ip/604342441"
-          ]
+          "source": "walmart_product",
+          "url": "https://www.walmart.com/ip/604342441"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/e-commerce~walmart-product-detail-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.walmart.com/ip/604342441",
-      "success_rate": 0.8,
-      "cost_per_1k_usd": 3.06,
-      "avg_latency_ms": 56024,
+      "success_rate": 1,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 4373,
       "verify_keys": [
         "<title>Apple, AirPods with Charging Case",
         "\"itemId\":\"604342441\"",
@@ -453,21 +407,21 @@
         "data-testid=\"hero-image-container\""
       ],
       "need_at_least": 2,
-      "notes": "Actor e-commerce/walmart-product-detail-scraper; FREE+compute, 80% yield with 90s timeouts."
+      "notes": "Dedicated walmart_product parser."
     },
     "x.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "query": "from:elonmusk",
-          "maxItems": 1
+          "source": "universal",
+          "url": "https://x.com/elonmusk"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/kaitoeasyapi~twitter-x-data-tweet-scraper-pay-per-result-cheapest/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://x.com/elonmusk",
       "success_rate": 1,
-      "cost_per_1k_usd": 5,
-      "avg_latency_ms": 16336,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 6750,
       "verify_keys": [
         "elonmusk",
         "Elon Musk",
@@ -476,23 +430,21 @@
         "data-testid=\"tweet\""
       ],
       "need_at_least": 2,
-      "notes": "Actor kaitoeasyapi/twitter-x-data-...cheapest at $0.00025/tweet; ignores maxItems=1, returns ~20/query."
+      "notes": "T1 universal."
     },
     "youtube.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "searchQueries": [
-            "MrBeast"
-          ],
-          "maxResults": 1
+          "source": "universal",
+          "url": "https://www.youtube.com/@MrBeast"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/streamers~youtube-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.youtube.com/@MrBeast",
-      "success_rate": 0.95,
-      "cost_per_1k_usd": 4,
-      "avg_latency_ms": 24406,
+      "success_rate": 1,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 5003,
       "verify_keys": [
         "\"channelMetadataRenderer\"",
         "\"externalId\":\"UCX6OQ3DkcsbYNE6H8uQQuVA\"",
@@ -501,25 +453,21 @@
         "\"subscriberCountText\""
       ],
       "need_at_least": 2,
-      "notes": "Actor streamers/youtube-scraper."
+      "notes": "T1 universal."
     },
     "zillow.com": {
       "status": "operational",
       "tier": {
         "params": {
-          "startUrls": [
-            {
-              "url": "https://www.zillow.com/columbus-oh/"
-            }
-          ],
-          "maxItems": 5
+          "source": "universal",
+          "url": "https://www.zillow.com/columbus-oh/"
         },
-        "endpoint_override": "https://api.apify.com/v2/acts/maxcopell~zillow-detail-scraper/run-sync-get-dataset-items"
+        "endpoint_override": "https://realtime.oxylabs.io/v1/queries"
       },
       "url": "https://www.zillow.com/columbus-oh/",
       "success_rate": 1,
-      "cost_per_1k_usd": 3,
-      "avg_latency_ms": 11850,
+      "cost_per_1k_usd": 7,
+      "avg_latency_ms": 5160,
       "verify_keys": [
         "data-testid=\"property-card\"",
         "\"zpid\":",
@@ -528,7 +476,7 @@
         "\"bedrooms\""
       ],
       "need_at_least": 2,
-      "notes": "Actor maxcopell/zillow-detail-scraper."
+      "notes": "T1 universal."
     }
   }
 }

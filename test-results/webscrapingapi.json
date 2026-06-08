@@ -1,0 +1,437 @@
+{
+  "provider": "webscrapingapi",
+  "report_date": "2026-06-08",
+  "frozen": true,
+  "endpoint": "https://api.webscrapingapi.com/v2",
+  "auth_env": "WSA_TOKEN",
+  "summary": {
+    "domains_total": 20,
+    "operational": 20,
+    "genuine_fail": 0,
+    "reachability_pct": 100,
+    "avg_success_rate": 0.869,
+    "avg_cost_per_1k_usd": 4.9,
+    "avg_latency_ms": 14844
+  },
+  "domains": {
+    "amazon.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.amazon.com/dp/B07FZ8S74R",
+      "success_rate": 1,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 2930,
+      "verify_keys": [
+        "productTitle",
+        "id=\"dp-container\"",
+        "id=\"centerCol\"",
+        "data-asin=\"B07FZ8S74R\"",
+        "nav-logo-base"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic (1cr=$0.00245)."
+    },
+    "bestbuy.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "render_js": "true"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.bestbuy.com/site/apple-iphone-16-pro-max-256gb-natural-titanium-att/6570601.p?skuId=6570601",
+      "success_rate": 0.87,
+      "cost_per_1k_usd": 12.25,
+      "avg_latency_ms": 7448,
+      "verify_keys": [
+        "application/ld+json",
+        "\"@type\":\"Product\"",
+        "\"sku\":\"6570601\"",
+        "\"customerPrice\"",
+        "add-to-cart-button"
+      ],
+      "need_at_least": 2,
+      "notes": "T2 render (5cr); 13 x 502 out of 100."
+    },
+    "bing.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.bing.com/search?q=best+laptops+2025",
+      "success_rate": 0.51,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 2201,
+      "verify_keys": [
+        "<title>best laptops 2025 - Search</title>",
+        "id=\"b_content\"",
+        "id=\"sb_form\"",
+        "class=\"b_algo",
+        "class=\"b_attribution"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic; 51% selector match (intermittent content drift)."
+    },
+    "booking.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "render_js": "true"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.booking.com/hotel/us/the-plaza.html",
+      "success_rate": 0.9333333333333333,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": 24251,
+      "verify_keys": [
+        "hp_hotel_name",
+        "data-capla-component-boundary",
+        "\"@type\" : \"Hotel\"",
+        "\"hotelId\":",
+        "\"reviewCount\""
+      ],
+      "need_at_least": 2,
+      "notes": "T2 render — recovered with stable selectors."
+    },
+    "capterra.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.capterra.com/p/135003/Slack/",
+      "success_rate": 0.93,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 46202,
+      "verify_keys": [
+        "<title>Slack Software Pricing",
+        "\"@type\":\"SoftwareApplication\"",
+        "\"name\":\"Slack\"",
+        "data-testid=\"hero-section\"",
+        "/p/135003/Slack"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic; partial bulk (43/100)."
+    },
+    "ebay.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "render_js": "true",
+          "country": "us"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.ebay.com/itm/116619563010",
+      "success_rate": 0.692,
+      "cost_per_1k_usd": 24.5,
+      "avg_latency_ms": 25856,
+      "verify_keys": [
+        "itm.ebaydesc.com",
+        "ebayLogoTitle",
+        "\"product\":",
+        "p.ebaystatic.com",
+        "\"@type\":\"Product\""
+      ],
+      "need_at_least": 2,
+      "notes": "T3 render+country; 26 x 502 out of 91; partial bulk."
+    },
+    "g2.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.g2.com/products/slack/reviews",
+      "success_rate": 0.959,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 50876,
+      "verify_keys": [
+        "<title>Slack Reviews 2026",
+        "itemprop=\"ratingValue\"",
+        "itemprop=\"reviewBody\"",
+        "products/slack/reviews",
+        "Filter 39001 reviews"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic; partial bulk (49/100)."
+    },
+    "github.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://github.com/microsoft/vscode",
+      "success_rate": 1,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 1714,
+      "verify_keys": [
+        "<title>GitHub - microsoft/vscode",
+        "data-testid=\"latest-commit-details\"",
+        "data-testid=\"view-all-files-row\"",
+        "id=\"repository-container-header\"",
+        "github.com/microsoft/vscode"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic."
+    },
+    "google.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.google.com/search?q=python+tutorial",
+      "success_rate": 0.99,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 3274,
+      "verify_keys": [
+        "id=\"search\"",
+        "id=\"rso\"",
+        "id=\"rcnt\"",
+        "<title>python tutorial - Google Search</title>",
+        "itemtype=\"http://schema.org/SearchResultsPage\""
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic."
+    },
+    "idealista.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "country": "es"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.idealista.com/inmueble/110715434/",
+      "success_rate": 0.966,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 24967,
+      "verify_keys": [
+        "class=\"main-info__title-main\"",
+        "class=\"info-data-price\"",
+        "inmueble/110715434",
+        "<title>Ático en venta",
+        "Calle de Isabel la Católica"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic+country=es; partial bulk (89/100)."
+    },
+    "indeed.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "render_js": "true"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.indeed.com/jobs?q=software+engineer&l=New+York%2C+NY",
+      "success_rate": 0.59,
+      "cost_per_1k_usd": 12.25,
+      "avg_latency_ms": 10340,
+      "verify_keys": [
+        "<title>Software Engineer Jobs, Employment in New York, NY | Indeed</title>",
+        "data-jk=\"",
+        "class=\"job_seen_beacon",
+        "data-testid=\"company-name\"",
+        "id=\"mosaic-provider-jobcards\""
+      ],
+      "need_at_least": 2,
+      "notes": "T2 render; 59% selector matches (intermittent rendering)."
+    },
+    "instagram.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "render_js": "true",
+          "country": "us"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.instagram.com/nike/",
+      "success_rate": 1,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": 2396,
+      "verify_keys": [
+        "\"username\":\"nike\"",
+        "<title>Nike (&#064;nike)",
+        "instagram://user?username=nike",
+        "href=\"https://www.instagram.com/nike/\"",
+        "og:type\" content=\"profile\""
+      ],
+      "need_at_least": 2,
+      "notes": "T3 render+country — recovered with stable selectors."
+    },
+    "linkedin.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.linkedin.com/company/microsoft/",
+      "success_rate": 1,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 4200,
+      "verify_keys": [
+        "<title>Microsoft | LinkedIn</title>",
+        "\"@type\":\"Organization\"",
+        "urn:li:organization",
+        "/company/microsoft",
+        "_org_guest_company_overview"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic."
+    },
+    "reddit.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://old.reddit.com/r/programming/",
+      "success_rate": 1,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 2732,
+      "verify_keys": [
+        "id=\"siteTable\"",
+        "data-fullname=\"t3_",
+        "data-subreddit=\"programming\"",
+        "data-subreddit-prefixed=\"r/programming\"",
+        "<title>programming</title>"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic (1cr)."
+    },
+    "tripadvisor.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.tripadvisor.com/Hotel_Review-g60763-d675616-Reviews-The_Plaza_New_York_A_Fairmont_Managed_Hotel-New_York_City_New_York.html",
+      "success_rate": 0.98,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 14207,
+      "verify_keys": [
+        "Fairmont",
+        "THE PLAZA NEW YORK",
+        "\"@type\":\"LodgingBusiness\"",
+        "\"aggregateRating\"",
+        "data-automation"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic."
+    },
+    "trustpilot.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.trustpilot.com/review/amazon.com",
+      "success_rate": 0.778,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 22559,
+      "verify_keys": [
+        "data-service-review-card-paper",
+        "data-service-review-rating",
+        "\"@type\":\"Organization\"",
+        "\"@type\":\"AggregateRating\"",
+        "data-business-unit-json-ld"
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic; partial bulk (99/100); 11 x 502 + occasional 52-byte stubs."
+    },
+    "walmart.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "render_js": "true",
+          "country": "us"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.walmart.com/ip/604342441",
+      "success_rate": 0.247,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 13902,
+      "verify_keys": [
+        "<title>Apple, AirPods with Charging Case",
+        "\"itemId\":\"604342441\"",
+        "data-testid=\"price-wrap\"",
+        "id=\"__NEXT_DATA__\"",
+        "data-testid=\"hero-image-container\""
+      ],
+      "need_at_least": 2,
+      "notes": "T3 render+country; 24.7% yield (60 fetch-failed/81); partial bulk."
+    },
+    "x.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://x.com/elonmusk",
+      "success_rate": 0.97,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 18011,
+      "verify_keys": [
+        "elonmusk",
+        "Elon Musk",
+        "44196397",
+        "react-root",
+        "data-testid=\"tweet\""
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic; 3 x 502."
+    },
+    "youtube.com": {
+      "status": "operational",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": "https://www.youtube.com/@MrBeast",
+      "success_rate": 1,
+      "cost_per_1k_usd": 2.45,
+      "avg_latency_ms": 2211,
+      "verify_keys": [
+        "\"channelMetadataRenderer\"",
+        "\"externalId\":\"UCX6OQ3DkcsbYNE6H8uQQuVA\"",
+        "ytInitialData",
+        "\"title\":\"MrBeast\"",
+        "\"subscriberCountText\""
+      ],
+      "need_at_least": 2,
+      "notes": "T1 basic."
+    },
+    "zillow.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "render_js": "true"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.zillow.com/columbus-oh/",
+      "success_rate": 0.9666666666666667,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": 16608,
+      "verify_keys": [
+        "data-testid=\"property-card\"",
+        "\"zpid\":",
+        "\"@type\":\"SingleFamilyResidence\"",
+        "\"streetAddress\"",
+        "\"bedrooms\""
+      ],
+      "need_at_least": 2,
+      "notes": "T2 render — recovered with stable selectors."
+    }
+  }
+}

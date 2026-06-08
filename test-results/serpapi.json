@@ -1,0 +1,456 @@
+{
+  "provider": "serpapi",
+  "report_date": "2026-06-08",
+  "frozen": true,
+  "endpoint": "https://serpapi.com/search.json",
+  "auth_env": "SERPAPI_TOKEN",
+  "summary": {
+    "domains_total": 20,
+    "operational": 8,
+    "genuine_fail": 12,
+    "reachability_pct": 40,
+    "avg_success_rate": null,
+    "avg_cost_per_1k_usd": 25,
+    "avg_latency_ms": null
+  },
+  "domains": {
+    "amazon.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "amazon",
+          "k": "wireless headphones",
+          "amazon_domain": "amazon.com"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.amazon.com/dp/B07FZ8S74R",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "productTitle",
+        "id=\"dp-container\"",
+        "id=\"centerCol\"",
+        "data-asin=\"B07FZ8S74R\"",
+        "nav-logo-base"
+      ],
+      "need_at_least": 2,
+      "notes": "Dedicated amazon engine ($0.025/search). Companion engine amazon_product for ASIN lookup."
+    },
+    "bestbuy.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "application/ld+json",
+        "\"@type\":\"Product\"",
+        "\"sku\":\"6570601\"",
+        "\"customerPrice\"",
+        "add-to-cart-button"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated bestbuy engine — SerpApi is SERP-only.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "bing.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "bing",
+          "q": "python tutorial"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.bing.com/search?q=best+laptops+2025",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "<title>best laptops 2025 - Search</title>",
+        "id=\"b_content\"",
+        "id=\"sb_form\"",
+        "class=\"b_algo",
+        "class=\"b_attribution"
+      ],
+      "need_at_least": 2,
+      "notes": "Dedicated bing engine."
+    },
+    "booking.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "hp_hotel_name",
+        "data-capla-component-boundary",
+        "\"@type\" : \"Hotel\"",
+        "\"hotelId\":",
+        "\"reviewCount\""
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated booking engine; closest substitute google_hotels.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "capterra.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "<title>Slack Software Pricing",
+        "\"@type\":\"SoftwareApplication\"",
+        "\"name\":\"Slack\"",
+        "data-testid=\"hero-section\"",
+        "/p/135003/Slack"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated capterra engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "ebay.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "ebay",
+          "_nkw": "macbook pro",
+          "ebay_domain": "ebay.com"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.ebay.com/itm/116619563010",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "itm.ebaydesc.com",
+        "ebayLogoTitle",
+        "\"product\":",
+        "p.ebaystatic.com",
+        "\"@type\":\"Product\""
+      ],
+      "need_at_least": 2,
+      "notes": "Dedicated ebay engine. Companion ebay_product."
+    },
+    "g2.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "<title>Slack Reviews 2026",
+        "itemprop=\"ratingValue\"",
+        "itemprop=\"reviewBody\"",
+        "products/slack/reviews",
+        "Filter 39001 reviews"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated g2 engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "github.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "<title>GitHub - microsoft/vscode",
+        "data-testid=\"latest-commit-details\"",
+        "data-testid=\"view-all-files-row\"",
+        "id=\"repository-container-header\"",
+        "github.com/microsoft/vscode"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated github engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "google.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "google",
+          "q": "python tutorial"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.google.com/search?q=python+tutorial",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "id=\"search\"",
+        "id=\"rso\"",
+        "id=\"rcnt\"",
+        "<title>python tutorial - Google Search</title>",
+        "itemtype=\"http://schema.org/SearchResultsPage\""
+      ],
+      "need_at_least": 2,
+      "notes": "Flagship google engine. Vast sibling family (news, shopping, maps, jobs, etc.)."
+    },
+    "idealista.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "class=\"main-info__title-main\"",
+        "class=\"info-data-price\"",
+        "inmueble/110715434",
+        "<title>Ático en venta",
+        "Calle de Isabel la Católica"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated idealista engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "indeed.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "<title>Software Engineer Jobs, Employment in New York, NY | Indeed</title>",
+        "data-jk=\"",
+        "class=\"job_seen_beacon",
+        "data-testid=\"company-name\"",
+        "id=\"mosaic-provider-jobcards\""
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated indeed engine; closest substitute google_jobs.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "instagram.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "instagram_profile",
+          "username": "natgeo"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.instagram.com/nike/",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "\"username\":\"nike\"",
+        "<title>Nike (&#064;nike)",
+        "instagram://user?username=nike",
+        "href=\"https://www.instagram.com/nike/\"",
+        "og:type\" content=\"profile\""
+      ],
+      "need_at_least": 2,
+      "notes": "Dedicated instagram_profile engine — profile-only, no search/hashtags."
+    },
+    "linkedin.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "<title>Microsoft | LinkedIn</title>",
+        "\"@type\":\"Organization\"",
+        "urn:li:organization",
+        "/company/microsoft",
+        "_org_guest_company_overview"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated linkedin engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "reddit.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "id=\"siteTable\"",
+        "data-fullname=\"t3_",
+        "data-subreddit=\"programming\"",
+        "data-subreddit-prefixed=\"r/programming\"",
+        "<title>programming</title>"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated reddit engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "tripadvisor.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "tripadvisor",
+          "q": "hotels in new york"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.tripadvisor.com/Hotel_Review-g60763-d675616-Reviews-The_Plaza_New_York_A_Fairmont_Managed_Hotel-New_York_City_New_York.html",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "Fairmont",
+        "THE PLAZA NEW YORK",
+        "\"@type\":\"LodgingBusiness\"",
+        "\"aggregateRating\"",
+        "data-automation"
+      ],
+      "need_at_least": 2,
+      "notes": "Dedicated tripadvisor engine. Companions: tripadvisor_place, tripadvisor_reviews."
+    },
+    "trustpilot.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "data-service-review-card-paper",
+        "data-service-review-rating",
+        "\"@type\":\"Organization\"",
+        "\"@type\":\"AggregateRating\"",
+        "data-business-unit-json-ld"
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated trustpilot engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "walmart.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "walmart",
+          "query": "laptop"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.walmart.com/ip/604342441",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "<title>Apple, AirPods with Charging Case",
+        "\"itemId\":\"604342441\"",
+        "data-testid=\"price-wrap\"",
+        "id=\"__NEXT_DATA__\"",
+        "data-testid=\"hero-image-container\""
+      ],
+      "need_at_least": 2,
+      "notes": "Dedicated walmart engine. Companions: walmart_product, walmart_reviews."
+    },
+    "x.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "elonmusk",
+        "Elon Musk",
+        "44196397",
+        "react-root",
+        "data-testid=\"tweet\""
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated x/twitter engine.",
+      "reason_code": "no_dedicated_engine"
+    },
+    "youtube.com": {
+      "status": "operational",
+      "tier": {
+        "params": {
+          "engine": "youtube",
+          "search_query": "python tutorial"
+        },
+        "endpoint_override": null
+      },
+      "url": "https://www.youtube.com/@MrBeast",
+      "success_rate": null,
+      "cost_per_1k_usd": 25,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "\"channelMetadataRenderer\"",
+        "\"externalId\":\"UCX6OQ3DkcsbYNE6H8uQQuVA\"",
+        "ytInitialData",
+        "\"title\":\"MrBeast\"",
+        "\"subscriberCountText\""
+      ],
+      "need_at_least": 2,
+      "notes": "Dedicated youtube engine. Companions: youtube_video, youtube_video_transcript."
+    },
+    "zillow.com": {
+      "status": "genuine_fail",
+      "tier": {
+        "params": {},
+        "endpoint_override": null
+      },
+      "url": null,
+      "success_rate": 0,
+      "cost_per_1k_usd": null,
+      "avg_latency_ms": null,
+      "verify_keys": [
+        "data-testid=\"property-card\"",
+        "\"zpid\":",
+        "\"@type\":\"SingleFamilyResidence\"",
+        "\"streetAddress\"",
+        "\"bedrooms\""
+      ],
+      "need_at_least": 2,
+      "notes": "No dedicated zillow engine.",
+      "reason_code": "no_dedicated_engine"
+    }
+  }
+}
